@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ' * ' là universal selector, ở đây nhầm loại bỏ trường hợp các element có margin, hay padding mặc định */
+ul {
+    list-style: none;
+}
+
+.active {
+    color: crimson;
+    text-decoration: underline;
+    font-weight: bold;
+}
+/* ----------------------------- Navbar CSS -------------- */
+.navbar {
+    position: absolute;
+    /* position theo tag body, làm cho phần navbar nổi nội dung lên phần header
+    xem như đè lên trên */
+    top: 0;
+    left: 0;
+    /* top left chỉ được set đối với các đối tượng có thuộc tính postion, nhầm sắp xếp vị trí theo tạo độ */
+    width: 100%;
+    display: flex;
+    /* với nevbar là flex container
+    flex item: h1.logo / nav-links / menu-btn */
+    justify-content: space-between;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+.nav-links {
+    display: flex;
+    /* set .nav-links là flex container với các flex items là .nav-links li */
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 30px;
+}
+header {
+    width: 100vw;
+    height: 100vh;
+    /* Lưu ý đối với đơn vị % thì sẽ phụ thuộc vào thẻ chứa nó,
+    nên khi ta dùng vw, vh ta chỉ xét kích thước theo trình duyệt */
+    background-image: url(./image/header-bg.png);
+    background-position: bottom;
+    /* background-postion: bottom center ==*/
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    /* căn giữa phần header thì chiều dọc với flex container là toàn bộ phần hình nền website */
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+}
+
+.header-content {
+    color: whitesmoke;
+    text-align: center;
+}
+
+.header-content h2 {
+    font-size: 4vmin;
+    /* đơn vị vmin?
+    ->> viewport-relative unit: vmin hay vmax liên quan đến chiều cao và chiều rộng tối đa hoặc tối thiểu của trình duyệt
+    ví dụ: nếu trinh duyệt có 1100px x 700px thì 1vmax = 11px / 1vmin = 7px
+    hay 4vmax = 11px *4 = 44 px.
+    - Đơn vị mình sử dụng với đối tượng luôn hiển thị trên màn hình, và việc kéo dãn trình duyệt hay dùng trên thiết bị khác kích thước sẽ tự set up cho phù hợp
+      */
+}
+
+.line {
+    width: 150px;
+    height: 4px;
+    /* Thẻ div không có nội dung nên có kích thước chiều dài bằng với browser, còn chiều cao bằng 0 */
+    background-color:crimson;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.header-content h1 {
+    font-size: 7vmin;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+/* Mình có thể để text-decoration trên * để thiết lập với tất cả đối tượng */
+
+.ctn {
+    padding: 8px 15px;
+    /* padding top bottom = 8 / left right = 15px */
+    background-color: crimson;
+    border-radius: 30px;
+    /* border-radius & và theo px thường sẽ thay đổi như thế nào? */
+    color: whitesmoke;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+    display: none;
+    /* .menu-btn mình sẽ dùng cho responsive với các thiết bị nhỏ hơn */
+}
+
+
+/* ----------------Events ------------------------------*/
+section {
+    width: 80%;
+    margin: 80px auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 4vmin;
+    color:indigo;
+}
+.row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    /* background: cyan; */
+}
+.row .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.events .row {
+    margin-top: 50px;
+}
+h4 {
+    font-size: 3vmin;
+    color: indigo;
+    margin: 20px auto;
+}
+p {
+    color: indigo;
+    padding: 0px 40px;
+}
+.events .ctn {
+    margin-top: 30px;
+}
+
+/* -------------------Explore section--------------------------- */
+.explore {
+    width: 100%;
+    height: 100vh;
+    /* Tại sao không dùng luôn width = 100vw cho thống nhất với các class trên mà lại dùng % theo tag? */
+    background-image: url(./image/bg2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* shorthand background ->> 
+    background: url(./image/bg2.png) no-repeat center / cover; */
+    display: flex;
+}
+.explore-content {
+    width: 60%;
+    padding: 50px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.explore-content h1 {
+    font-size: 7vmin;
+    margin: 50px;
+}
+.explore-content .line {
+    margin-bottom: 50px;
+}
+.explore-content p {
+    color: whitesmoke;
+}
+.explore-content .ctn {
+    margin-top: 40px;
+}
+
+/* ---------------------Tours section------------------------------ */
+.content-col {
+    width: 40%;
+}
+.img-col {
+    width: 60%;
+}
+.tours .img-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+.img-gallery img {
+    max-width: 300px;
+    margin: 10px;
+}
+
+.content-col h1 {
+    font-size: 7vmin;
+    color: indigo;
+}
+.content-col .line {
+    margin-left: -1px;
+}
+.content-col p {
+    padding: 0;
+    margin: 30px auto;
+}
+.content-col .ctn {
+    margin-left: -100px;
+    /* có thể linh hoạt margin với số < 0 */
+}
+
+/*------------------------ Footer------------------------------------ */
+.footer {
+    width: 100%;
+    min-height: 100px;
+    padding: 20px 80px;
+    margin: 0;
+    background: indigo;
+    text-align: center;
+}
+.footer p {
+    color: whitesmoke;
+    margin: 20px auto;
+}
+
+/*--------- Responsive với mobile-------------------- */
+/**
+Các breakpoints trong responsive
+Mobile: width < 740px
+@media only screen and (max-width: 739px)
+Tablet: width >= 740px and width <1024px
+@media only screen and (min-width: 740px) and (max-width: 1023px)
+PC > 1024px
+@media only screen and (min-width: 1024px) */
+
+@media only screen and (max-width: 1024px) {
+    .menu-btn {
+        display: block;
+    }
+    .navbar {
+        padding: 0;
+    }
+    .logo {
+        position: absolute;
+        top:  30px;
+        left: 30px;
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        background-color:darkcyan ;
+        margin-top: -900px;
+        /* Có cách khác thay vì margin -900px ? 
+        
+        */
+        transition: all 0.5s ease;
+        
+    }
+    .mobile-menu {
+        margin-top: 0px;
+        border-bottom-right-radius: 30%;
+    }
+    .nav-links li {
+        margin: 30px auto;
+    }
+    /* events */
+    .row {
+        flex-direction: column;
+    }
+    .row .col {
+        margin: 20px auto;
+    }
+    .col img {
+        max-width: 90%;
+    }
+    /* explore */
+    .explore-content {
+        width: 100%;
+    }
+    .tours .col {
+        width: 100%;
+    }
+    .img-gallery {
+        justify-content: center;
+        align-items: center;
+    }
+    .img-gallery img {
+        width: 90%;
+    }
+    .footer {
+        padding: 10px;
+    }
+}
+
+/* Animation */
+img {
+    transition: transform .3s ease;
+}
+img:hover {
+    transform: scale(1.1);
+    /* hiệu ứng zoom khi hover vào ảnh */
+}
+.ctn:hover {
+    background: whitesmoke;
+    color: crimson;
+    box-shadow: 2px 2px 5px black;
+}
+li:hover {
+    color: crimson;
+    cursor: pointer;
+}
